@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Lesson 1</title>
@@ -13,58 +13,60 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-
       const button = <button>Good job!</button>;
       const paragraph = <p>My name is Phathu</p>;
 
-      const productCost = 10 + (8*2);
+      const productCost = 10 + 8 * 2;
       console.log(productCost);
       const shippingCost = 5;
       const totalCost = productCost + shippingCost;
 
-      const date = dayjs().format('MMMM D');
+      const date = dayjs().format("MMMM D");
       console.log(date);
-      const time = dayjs().format('HH:mm:ss');
+      const time = dayjs().format("HH:mm:ss");
 
       const div = (
         <div>
           <p>Cotton socks</p>
           <p>Price: R10</p>
           <button>Add to Cart</button>
-          <br /><br />
+          <br />
+          <br />
           <p>Product Cost: R{productCost}</p>
           <p>Shipping Cost: R{shippingCost}</p>
           <p>Total Cost: R{totalCost}</p>
           <button>Place your order</button>
-          <br /><br />
+          <br />
+          <br />
           <p>Today is {date}</p>
           <p>Current time: {time}</p>
         </div>
       );
 
-      const container = document.querySelector('.js-container');
+      const container = document.querySelector(".js-container");
       //ReactDOM.createRoot(container).render(div);
       const root = ReactDOM.createRoot(container);
       //root.render(div);
       setInterval(() => {
-        const time = dayjs().format('HH:mm:ss');
-        root.render((
+        const time = dayjs().format("HH:mm:ss");
+        root.render(
           <div>
             <p>Cotton socks</p>
             <p>Price: R10</p>
             <button>Add to Cart</button>
-            <br /><br />
+            <br />
+            <br />
             <p>Product Cost: R{productCost}</p>
             <p>Shipping Cost: R{shippingCost}</p>
             <p>Total Cost: R{totalCost}</p>
             <button>Place your order</button>
-            <br /><br />
+            <br />
+            <br />
             <p>Today is {date}</p>
             <p>Current time: {time}</p>
-          </div>
-        ));
+          </div>,
+        );
       }, 1000);
-
     </script>
   </body>
 </html>

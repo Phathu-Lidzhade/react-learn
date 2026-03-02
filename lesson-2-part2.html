@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>lesson 2 part 2</title>
@@ -11,12 +11,16 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-
       function ProductDetails({ productName, price, discountPrice, imageSrc }) {
+        const prices = discountPrice ? (
+          <del>
+            <p>Price: {price}</p>
+          </del>
+        ) : (
+          <p>Price: {price}</p>
+        );
 
-        const prices = discountPrice ? <del><p>Price: {price}</p></del> : <p>Price: {price}</p>;
-
-        return(
+        return (
           <>
             <img src={imageSrc} width="90" /> <br />
             {productName}
@@ -28,30 +32,29 @@
       }
 
       function App() {
-        return(
+        return (
           <>
-            <ProductDetails 
-              productName="Cotton socks" 
-              price="R10.90" 
+            <ProductDetails
+              productName="Cotton socks"
+              price="R10.90"
               discountPrice="R5.45"
               imageSrc="images\cotton-socks.png"
             />
-            <ProductDetails 
-              productName="Tennis balls" 
-              price="R6.00" 
+            <ProductDetails
+              productName="Tennis balls"
+              price="R6.00"
               imageSrc="images\tennis-balls.png"
-
             />
-            <ProductDetails 
-              productName="Plain T-Shirt" 
-              price="R7.99" 
+            <ProductDetails
+              productName="Plain T-Shirt"
+              price="R7.99"
               imageSrc="images\plain-t-shirt.png"
             />
           </>
         );
       }
 
-      const container = document.querySelector('.js-container');
+      const container = document.querySelector(".js-container");
       ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>

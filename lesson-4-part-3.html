@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>lesson 4 part 3</title>
     <style>
-      body{
+      body {
         font-family: Arial, sans-serif;
         margin-top: 0px;
         margin-bottom: 0px;
       }
-      .app-container{
+      .app-container {
         display: flex;
         justify-content: center;
         height: 100vh;
@@ -36,8 +36,7 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-
-       function App() {
+      function App() {
         const [count, setCount] = React.useState(0);
         const buttonRef = React.useRef();
 
@@ -61,12 +60,8 @@
         return (
           <>
             <div className="app-container">
-              <button
-                onClick={increaseCount}
-                ref={buttonRef}
-                className="btn"
-              >
-                Clicked {count} {count === 1 ? 'time' : 'times'}
+              <button onClick={increaseCount} ref={buttonRef} className="btn">
+                Clicked {count} {count === 1 ? "time" : "times"}
               </button>
               <button className="btn" onClick={resetCount}>
                 Reset
@@ -79,9 +74,8 @@
         );
       }
 
-      const container = document.querySelector('.js-container');
+      const container = document.querySelector(".js-container");
       ReactDOM.createRoot(container).render(<App />);
-
     </script>
   </body>
 </html>

@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>lesson 4</title>
     <style>
-      .body{
+      .body {
         font-family: Arial, Helvetica, sans-serif;
       }
-      .btn{
+      .btn {
         background-color: rgb(9, 174, 97);
         color: white;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
       }
-      .btn-off{
+      .btn-off {
         background-color: rgb(231, 34, 54);
         color: white;
         border: none;
@@ -30,13 +30,15 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-
       function Btn() {
         const [isButtonOn, setIsButtonOn] = React.useState(true);
 
         return (
           <>
-            <button className={isButtonOn ? "btn" : "btn-off"} onClick={() => setIsButtonOn(!isButtonOn)}>
+            <button
+              className={isButtonOn ? "btn" : "btn-off"}
+              onClick={() => setIsButtonOn(!isButtonOn)}
+            >
               {isButtonOn ? "ON" : "OFF"}
             </button>
           </>
@@ -44,17 +46,15 @@
       }
 
       function App() {
-
-        return(
+        return (
           <>
             <Btn />
           </>
         );
       }
 
-      const container = document.querySelector('.js-container');
+      const container = document.querySelector(".js-container");
       ReactDOM.createRoot(container).render(<App />);
-
     </script>
   </body>
 </html>

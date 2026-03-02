@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>lesson 3</title>
@@ -11,9 +11,7 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-
       function ClickedButton({ count, setCount }) {
-
         function increaseCount() {
           setCount(count + 1);
         }
@@ -21,8 +19,8 @@
         return (
           <>
             <button onClick={increaseCount}>
-            Clicked {count} {count === 1 ? 'time' : 'times'}
-          </button>
+              Clicked {count} {count === 1 ? "time" : "times"}
+            </button>
           </>
         );
       }
@@ -34,7 +32,7 @@
           setCount(0);
         }
 
-        return(
+        return (
           <>
             <ClickedButton count={count} setCount={setCount} />
             <ClickedButton count={count} setCount={setCount} />
@@ -43,9 +41,8 @@
         );
       }
 
-      const container = document.querySelector('.js-container');
+      const container = document.querySelector(".js-container");
       ReactDOM.createRoot(container).render(<App />);
-
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>lesson 2</title>
@@ -11,9 +11,8 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-
       function LoginForm() {
-        return(
+        return (
           <>
             <div>
               <input type="text" placeholder="Email" />
@@ -29,7 +28,7 @@
       }
 
       function App() {
-        return(
+        return (
           <>
             <p>Hello, welcome to my website</p>
             <LoginForm />
@@ -37,7 +36,7 @@
         );
       }
 
-      const container = document.querySelector('.js-container');
+      const container = document.querySelector(".js-container");
       ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
