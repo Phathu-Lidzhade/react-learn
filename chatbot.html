@@ -22,10 +22,15 @@
       .chat-input{
         padding: 12px 15px;
         border-width: 1px;
+        border: 3px solid #ccc;
         border-radius: 10px;
         font-size: 15px;
 
         flex-grow: 1;
+      }
+      .chat-input:focus{
+        border-color: rgb(114, 197, 137);
+        outline: none;
       }
       .chat-input-container{
         display: flex;
@@ -38,6 +43,10 @@
         height: 100vh;
         display: flex;
         flex-direction: column;
+      }
+      p {
+        text-align: center;
+        color: #b0b0b0;
       }
       .chat-message-user{
         display: flex;
@@ -66,6 +75,10 @@
         margin-top: 20px;
         overflow: scroll;
         scrollbar-width: none;
+      }
+      .loading-spinner{
+        height: 40px;
+        margin: -15px;
       }
 
     </style>
@@ -116,7 +129,7 @@
             // Because we don't save this message in newChatMessages,
             // it will be remove later, when we add the response.
             {
-              message: "Loading...",
+              message: <img className="loading-spinner" src="images/loading-spinner.gif" />,
               sender: "robot",
               id: crypto.randomUUID(),
             },
@@ -208,7 +221,7 @@
         );
       }
 
-      function ChatMessages({ chatMessages }) {
+      function useAutoScroll() {
         const chatMessagesRef = React.useRef(null);
         React.useEffect(() => {
           const containerElem = chatMessagesRef.current;
@@ -216,6 +229,9 @@
             containerElem.scrollTop = containerElem.scrollHeight;
           }
         }, [chatMessages]);
+      }
+
+      function ChatMessages({ chatMessages }) {
 
         return (
           <div 
@@ -236,24 +252,14 @@
       function App() {
         const [isLoading, setIsLoading] = React.useState(false);
 
-        const [chatMessages, setChatMessages] = React.useState([
-          {
-            message: "Hello chatbot",
-            sender: "user",
-            id: "id1",
-          },
-          {
-            message: "Hello! How can I help you?",
-            sender: "robot",
-            id: "id2",
-          },
-        ]);
+        const [chatMessages, setChatMessages] = React.useState([]);
         // const chatMessages = array[0];
         // const setChatMessages = array[1];
         // const [ chatMessages, setChatMessages ] = array;
 
         return (
           <div className="app-container">
+            <p>Welcome to the chatbot project! Send a message using the textbox below</p>
             <ChatMessages chatMessages={chatMessages} />
             <ChatInput
               chatMessages={chatMessages}
