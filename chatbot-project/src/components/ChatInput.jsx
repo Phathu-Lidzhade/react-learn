@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { useState } from "react";
 import { Chatbot } from "supersimpledev";
 import LoadingImage from "../assets/loading-spinner.gif";
@@ -15,6 +16,10 @@ export function ChatInput({
     setInputText(event.target.value);
   }
 
+  function clearMessages() {
+    setChatMessages([]);
+  }
+
   async function sendMessage() {
     // Prevent sending if loading or if input is empty
     if (isLoading || inputText.trim() === "") {
@@ -30,6 +35,7 @@ export function ChatInput({
         message: inputText,
         sender: "user",
         id: crypto.randomUUID(),
+        time: dayjs().valueOf()
       },
     ];
 
@@ -41,7 +47,7 @@ export function ChatInput({
       {
         message: <img className="loading-spinner" src={LoadingImage} />,
         sender: "robot",
-        id: crypto.randomUUID(),
+        id: crypto.randomUUID()
       },
     ]);
 
@@ -53,6 +59,7 @@ export function ChatInput({
         message: response,
         sender: "robot",
         id: crypto.randomUUID(),
+        time: dayjs().valueOf()
       },
     ]);
     setIsLoading(false);
@@ -85,6 +92,9 @@ export function ChatInput({
         className="send-btn"
       >
         Send
+      </button>
+      <button className="clear-btn" onClick={clearMessages}>
+        Clear
       </button>
     </div>
   );

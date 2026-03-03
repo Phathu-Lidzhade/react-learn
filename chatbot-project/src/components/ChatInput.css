@@ -33,3 +33,13 @@
   height: 40px;
   margin: -15px;
 }
+.clear-btn {
+  background-color: rgb(206, 206, 206);
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
