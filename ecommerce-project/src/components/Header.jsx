@@ -1,5 +1,5 @@
-import { Link, NavLink } from 'react-router';
-import './header.css';
+import { Link, NavLink } from "react-router";
+import "./header.css";
 
 function Header() {
   return (
@@ -34,4 +34,4 @@ function Header() {
   );
 }
 
-export default Header
+export default Header;

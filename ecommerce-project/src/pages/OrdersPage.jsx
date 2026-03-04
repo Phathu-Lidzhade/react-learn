@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import './OrdersPage.css';
+import "./OrdersPage.css";
 
 function OrdersPage() {
   return (
@@ -147,4 +147,4 @@ function OrdersPage() {
   );
 }
 
-export default OrdersPage
+export default OrdersPage;
