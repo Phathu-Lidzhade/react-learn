@@ -1,0 +1,14 @@
+.PageNotFound-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.PageNotFound-text{
+    font-size: 2rem;
+    font-weight: bold;
+    color: red;
+}
