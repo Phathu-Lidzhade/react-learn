@@ -5,8 +5,8 @@ import Header from "./components/Header";
 import HomePage from "./pages/home/HomePage";
 import CheckoutPage from "./pages/checkout/CheckoutPage";
 import OrdersPage from "./pages/orders/OrdersPage";
-import TrackingPage from "./pages/TrackingPage";
-import PageNotFound from "./pages/PageNotFound";
+import TrackingPage from "./pages/tracking/TrackingPage";
+import PageNotFound from "./pages/404page/PageNotFound";
 import "./App.css";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
       <Route index element={<HomePage cart={cart} />} />
       <Route path="checkout" element={<CheckoutPage cart={cart} />} />
       <Route path="orders" element={<OrdersPage cart={cart} />} />
-      <Route path="tracking" element={<TrackingPage />} />
+      <Route path="tracking/:orderId/:productId" element={<TrackingPage cart={cart} />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
