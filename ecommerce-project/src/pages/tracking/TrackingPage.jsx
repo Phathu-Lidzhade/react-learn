@@ -29,6 +29,20 @@ function TrackingPage({ cart }) {
     return orderProduct.productId === productId;
   });
 
+  const totalDeliveryTimeMs = orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs;
+
+  const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
+
+  let progressPercentage = (timePassedMs / totalDeliveryTimeMs) * 100;
+
+  if (progressPercentage > 100) {
+    progressPercentage = 100;
+  }
+
+  const isPreparing = progressPercentage < 33;
+  const isShipped = progressPercentage >= 33 && progressPercentage < 100;
+  const isDelivered = progressPercentage === 100;
+
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/orders-favicon.png" />
@@ -43,7 +57,7 @@ function TrackingPage({ cart }) {
             View all orders
           </Link>
 
-          <div className="delivery-date">Arriving on {dayjs(orderProduct.estimatedDeliveryTimeMs).format('dddd, MMMM D')}</div>
+          <div className="delivery-date">{progressPercentage === 100 ? "Delivered on" : "Arriving on"} {dayjs(orderProduct.estimatedDeliveryTimeMs).format('dddd, MMMM D')}</div>
 
           <div className="product-info">
             {orderProduct.product.name}
@@ -57,13 +71,13 @@ function TrackingPage({ cart }) {
           />
 
           <div className="progress-labels-container">
-            <div className="progress-label">Preparing</div>
-            <div className="progress-label current-status">Shipped</div>
-            <div className="progress-label">Delivered</div>
+            <div className={`progress-label ${isPreparing && 'current-status'}`}>Preparing</div>
+            <div className={`progress-label ${isShipped && 'current-status'}`}>Shipped</div>
+            <div className={`progress-label ${isDelivered && 'current-status'}`}>Delivered</div>
           </div>
 
           <div className="progress-bar-container">
-            <div className="progress-bar"></div>
+            <div className="progress-bar" style={{ width: `${progressPercentage}%` }}></div>
           </div>
         </div>
       </div>
