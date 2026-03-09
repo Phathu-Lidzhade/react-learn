@@ -2,7 +2,7 @@ import CartItemDetails from "./CartItemDetails";
 import DeliveryOptions from "./DeliveryOptions";
 import DeliveryDate from "./DeliveryDate";
 
-function OrderSummary({ cart, deliveryOptions }) {
+function OrderSummary({ cart, deliveryOptions, loadCart }) {
   return (
     <div className="order-summary">
       {deliveryOptions.length > 0 &&
@@ -20,7 +20,11 @@ function OrderSummary({ cart, deliveryOptions }) {
               <div className="cart-item-details-grid">
                 <CartItemDetails cartItem={cartItem} />
 
-                <DeliveryOptions deliveryOptions={deliveryOptions} cartItem={cartItem} />
+                <DeliveryOptions 
+                deliveryOptions={deliveryOptions} 
+                cartItem={cartItem}
+                loadCart={loadCart}
+                 />
               </div>
             </div>
           );
