@@ -160,6 +160,10 @@
   font-size: 15px;
 }
 
+.update-quantity{
+  width: 50px;
+}
+
 .checkout-page .payment-summary-title {
   font-weight: 700;
   font-size: 18px;
