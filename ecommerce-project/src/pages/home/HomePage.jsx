@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import Header from "../../components/Header";
-import Checkmark from "../../assets/images/icons/checkmark.png";
 import ProductsGrid from "./ProductsGrid";
 import "./HomePage.css";
 
